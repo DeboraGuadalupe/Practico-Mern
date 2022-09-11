@@ -20,7 +20,6 @@ function getCountryTranslatedName(isoCode, language){
     let iso = countries.filter(element => element.iso3 = isoCode);
     let iso2 = iso.filter(element => element.translations = language);
     let iso3 = JSON.stringify(iso2);
-    console.log(iso3);
     return iso3;
     //Complete with your code
 }
@@ -29,22 +28,28 @@ function getCountryTranslatedName(isoCode, language){
  * @returns {Array}
  */
 function getCountriesBySubregion(subregion){
+    let iso = countries.filter(element => element.subregion = subregion);
+    const isoArray = [];
+    for(var i in iso) {
+        isoArray.push([i,iso[i]]);
+    }
+    return isoArray;
     //Complete with your code
 }
 
 function main() {
-    // console.log(
-    //     '///// Ejercicio 1 /////\n',
-    //     getCountryByIso3('ARG'),
-    //     '\n');
+    console.log(
+        '///// Ejercicio 1 /////\n',
+        getCountryByIso3('ARG'),
+        '\n');
     console.log(
         '///// Ejercicio 2 /////\n',
         getCountryTranslatedName('ARG', 'ja'),
         '\n');
-    // console.log(
-    //     '///// Ejercicio 3 /////\n',
-    //     getCountriesBySubregion('South America'),
-    //     '\n');
+    console.log(
+        '///// Ejercicio 3 /////\n',
+        getCountriesBySubregion('South America'),
+        '\n');
 
 }
 
